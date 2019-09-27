@@ -2,7 +2,7 @@ require "optout"
 
 class Jing
   VERSION = "0.0.1"
-  DEFAULT_JAR = File.join(File.dirname(__FILE__), "jing-20091111.jar")
+  DEFAULT_JAR = "./jing-20091111.jar"
 
   Error = Class.new(StandardError)
   ExecutionError = Class.new(Error)
@@ -103,15 +103,15 @@ class Jing
   # Same as #validate
   #
   # === Returns
-  # 
+  #
   # [Boolean] +true+ if valid, +false+ if invalid
   #
-  
+
   def valid?(xml)
     errors = validate(xml)
     errors.none?
   end
-    
+
   private
   def execute(options)
     cmd = @@option_builder.shell(options)
